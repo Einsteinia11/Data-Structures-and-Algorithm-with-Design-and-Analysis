@@ -1,20 +1,24 @@
 #include <iostream>
 using namespace std;
-void insertion_sort(int array[], int size) {
-    for (int step = 1; step < size; step++) {
-    int key = array[step];
-    int j = step - 1;
-    while (key < array[j] && j >= 0) {
-      array[j + 1] = array[j];
-      --j;
+void insertion_sort(int array[], int length){
+    for(int i = 1; i < length; i++){
+        int key = array[i];
+        cout<<"key = "<<key<<endl;
+        int j = i-1;
+        while(key < array[j] && j>=0){
+            array[j+1] = array[j];
+            j--;
+        }
+        cout<<endl;
+        array[j+1] = key;
     }
-    array[j + 1] = key;
-    cout<<"Sorted array is: "<<endl;
-    for(int i = 0; i < size; i++) {
+    cout<<endl;
+    cout<<"Array after sorting: "<<endl;
+    for(int i = 0; i < length; i++) {
         cout<<array[i]<<", ";
     }
-  }
 }
+
 int main(){
     int length;
     cout<<"Enter the length of the array: ";
@@ -29,6 +33,7 @@ int main(){
     for(int i = 0; i < length; i++){
         cout<<arr[i]<<", ";
     }
+    cout<<endl;
     insertion_sort(arr, length);
     return 0;
 }
