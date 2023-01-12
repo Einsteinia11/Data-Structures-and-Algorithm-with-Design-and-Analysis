@@ -10,7 +10,11 @@ void insertion_sort(int array[], int length){
             j--;
         }
         cout<<endl;
-        array[j+1] = key;
+        array[j+1] = key; 
+        // for(int i = 0; i < length; i++) {
+        //     cout<<array[i]<<", ";
+        // }
+        // cout<<endl;
     }
     cout<<endl;
     cout<<"Array after sorting: "<<endl;
@@ -18,7 +22,15 @@ void insertion_sort(int array[], int length){
         cout<<array[i]<<", ";
     }
 }
-
+/* Example:
+Suppose we have an array [43, 5, 6, 1]
+key = 5
+[5, 43, 6, 1]
+key = 6
+[5, 6, 43, 1]
+key = 1
+[1, 5, 6, 43]
+*/
 int main(){
     int length;
     cout<<"Enter the length of the array: ";
