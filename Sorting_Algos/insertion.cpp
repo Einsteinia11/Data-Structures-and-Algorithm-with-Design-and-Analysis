@@ -22,7 +22,7 @@ void insertion_sort(int array[], int length){
         cout<<array[i]<<", ";
     }
 }
-/* Example:
+/* Example Run:
 Suppose we have an array [43, 5, 6, 1]
 key = 5
 [5, 43, 6, 1]
@@ -30,6 +30,34 @@ key = 6
 [5, 6, 43, 1]
 key = 1
 [1, 5, 6, 43]
+
+Now Let's talk about it's Time Complexity,
+1. Best Case: for example When the array is in Ascending order
+ex. array = [10, 20, 30, 40, 50, 60]
+So the Numbers of Camparisons and swapping will be,
+   No. of Camparisons   |    No. of Swapping
+           0            |          0
+           1            |          0
+           .            |          .    // here (.) means same as above
+           .            |          .
+        (n-1)           |          .
+
+    So from here we will consider the upper bound value of (n-1) which is n.
+    so the Time Complexity for the best case would be O(n).
+
+2. Worst case: For example When the array is in Descending order
+ex. array = [60, 50, 40, 30, 20, 10]
+So the Numbers of Camparisons and swapping will be,
+   No. of Camparisons   |    No. of Swapping
+           0            |          0
+           1            |          1
+           2            |          2    // here (.) means same as above
+           3            |          3
+           .            |          .
+        (n-1)           |          (n-1)
+    So this will be solved as n(n-1)/2 which will become n^2.n/2 here we have to consider the bigger term which is n^2
+    so the Time Complexity for the worst case would be O(n^2)
+ 3. Likewise the average case will be similar to Worst case so it's Time complexity would be O(n^2).
 */
 int main(){
     int length;
