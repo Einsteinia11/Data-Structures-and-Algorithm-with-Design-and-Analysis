@@ -11,6 +11,21 @@ It is just a mathematical way of analysing how long an algorithm with a given nu
 <li>O(C^n) — Exponential Time: Given an input of size n, the number of steps it takes to accomplish a task is a constant to the n power (pretty large number).</li>
 </ul>
 
+<h3>The idea behind big O notation</h3>
+<p>Big O notation is the language we use for talking about how long an algorithm takes to run. It's how we compare the efficiency of different approaches to a problem.
+
+It's like math except it's an awesome, not-boring kind of math where you get to wave your hands through the details and just focus on what's basically happening.
+
+With big O notation we express the runtime in terms of—brace yourself—how quickly it grows relative to the input, as the input gets arbitrarily large.
+
+Let's break that down:</p>
+<ul>
+<li><b> how quickly the runtime grows</b>—It's hard to pin down the exact runtime of an algorithm. It depends on the speed of the processor, what else the computer is running, etc. So instead of talking about the runtime directly, we use big O notation to talk about how quickly the runtime grows.</li>
+<li>relative to the input—If we were measuring our runtime directly, we could express our speed in seconds. Since we're measuring how quickly our runtime grows, we need to express our speed in terms of...something else. With Big O notation, we use the size of the input, which we call "n". So we can say things like the runtime grows "on the order of the size of the input" O(n) or "on the order of the square of the size of the input" or O(n²)</li>
+<li></li>
+<li></li>
+</ul>
+
 And here are some helpful resources to learn more:
 
 <a href = "https://en.wikipedia.org/wiki/Time_complexity">Wikipedia</a><br>
