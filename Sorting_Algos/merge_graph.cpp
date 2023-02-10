@@ -86,7 +86,7 @@ int main()
   int size, c;
   ofstream fout;
   fout.open("MergeSortGraph.csv", ios::app);
-      
+  fout<<"n, n*n ,No. of comparisons, logn, nlogn"<<endl;
   cout<<"\t* * * Selection Sort with Time Complexities\' Graph * * *\n" ; 
   msort<int> list;
   cout<<"\nEnter array size to begin with {in range [30, 1000] } : ";
