@@ -8,23 +8,23 @@ using namespace std;
 template <class T>
 class msort
 {
-  public:
-    T A[MAX];
-    int comparisons, n;
-    
-    msort()
-    {
-      comparisons = 0;
-    }
-    void input();
-    void merge_sort(T[],int,int);
-    void merge(T[],int,int,int);
-    void display()
-    {
-      cout<<"\nSorted array : \n";
-      for(int i = 0; i < n; i++)
-        cout<<A[i]<<" ";
- }
+    public:
+      T A[MAX];
+      int comparisons, n;
+      
+      msort()
+      {
+        comparisons = 0;
+      }
+      void input();
+      void merge_sort(T[],int,int);
+      void merge(T[],int,int,int);
+      void display()
+      {
+        cout<<"\nSorted array : \n";
+        for(int i = 0; i < n; i++)
+          cout<<A[i]<<" ";
+      }
 };
 
 template<class T>
@@ -55,17 +55,17 @@ void msort<T>::merge(T A[],int p,int q,int r)
   
   for (k = 1; k <= r; k++)
   {
-    if (L[i] <= R[j])
- {
-   A[k] = L[i];
-   i++;
- }
- else 
- {
-   A[k] = R[j];
-   j++;
- }
- comparisons++;
+      if (L[i] <= R[j])
+      {
+        A[k] = L[i];
+        i++;
+      }
+      else 
+      {
+        A[k] = R[j];
+        j++;
+      }
+      comparisons++;
   }
 } 
 
@@ -75,9 +75,9 @@ void msort<T>::merge_sort(T A[],int p,int r)
   if (p < r)
   {
     int q = (p+r)/2;
- merge_sort(A, p, q);
- merge_sort(A,q+1,r);
- merge(A,p,q,r);
+    merge_sort(A, p, q);
+    merge_sort(A,q+1,r);
+    merge(A,p,q,r);
   }
 }
 
@@ -95,21 +95,19 @@ int main()
   if (size < 30 || size > 1000)
   {
       cout<<"\nInvalid Size !!! \nEnter size from given range only i.e. [30, 1000] \nsize : ";
-   cin>>size;
+      cin>>size;
   }
   else 
   {
     for (int k = size; k <= 1000; k += 30)
     {
-   list.n = k;
-      list.input();
-   list.merge_sort(list.A,1,list.n);
-   list.display();
-   
-   cout<<"\n\nNumber of Comparisons : "<<list.comparisons;
-  
-      fout<<k<<","<<k*k<<","<<list.comparisons<<","<<log2(k)<<","<<k*log2(k)<<endl;
- }
+        list.n = k;
+        list.input();
+        list.merge_sort(list.A,1,list.n);
+        list.display();
+        cout<<"\n\nNumber of Comparisons : "<<list.comparisons;
+        fout<<k<<","<<k*k<<","<<list.comparisons<<","<<log2(k)<<","<<k*log2(k)<<endl;
+    }
   }
   fout.close();
   return 0;
