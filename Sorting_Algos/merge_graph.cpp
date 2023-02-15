@@ -31,7 +31,7 @@ template<class T>
 void msort<T>:: input()
 {
   for (int i = 1; i <= n; i++)
-     A[i] = rand();
+      A[i] = rand();
 }
 
 template<class T>
