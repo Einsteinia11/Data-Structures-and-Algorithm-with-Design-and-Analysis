@@ -17,7 +17,7 @@ int randomised_select:: rnd_select(int a[], int p, int r, int i){
 int randomised_select:: rnd_partition(int a[], int p, int r){
     int i = rand()%r +1;
     swap(a[i], a[r]);
-    return partition(a,p,r)
+    return partition(a,p,r);
 }
 int randomised_select:: partition(int a[], int p, int r){
     int x = a[r];
