@@ -36,10 +36,8 @@ class selection_sort{
 
 int main(){
     //This program is written by kajal
-    
     selection_sort obj;
     obj.insert();
     obj.sort();
-
     return 0;
 }
