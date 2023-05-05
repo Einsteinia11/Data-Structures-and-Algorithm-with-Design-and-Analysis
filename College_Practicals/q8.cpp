@@ -2,6 +2,7 @@
 #include<iostream>
 #include<stdlib.h>
 #define MAX 20
+using namespace std;
 typedef struct Q
 {
 	int data[MAX];
