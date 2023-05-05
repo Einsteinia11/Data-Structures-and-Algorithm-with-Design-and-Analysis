@@ -1,5 +1,5 @@
 // 7. Implement Breadth-First Search in a graph 
-#include<iostream.h>
+#include<iostream>
 #include<stdlib.h>
 #define MAX 20
 typedef struct Q
