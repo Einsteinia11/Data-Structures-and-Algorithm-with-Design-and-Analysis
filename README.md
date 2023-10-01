@@ -1,4 +1,20 @@
 # Data Structures and Algorithm with Design and Analysis
+# Hacktoberfest 2023 - Data Structures and Algorithms
+
+![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2023-brightgreen)
+![GitHub Issues](https://github.com/Einsteinia11/Data-Structures-and-Algorithm-with-Design-and-Analysis/issues)
+![GitHub Pull Requests](https://github.com/Einsteinia11/Data-Structures-and-Algorithm-with-Design-and-Analysis/pulls)
+![GitHub Stars](https://github.com/Einsteinia11/Data-Structures-and-Algorithm-with-Design-and-Analysis/stargazers)
+
+Welcome to the Hacktoberfest 2023 Data Structures and Algorithms project! This repository is open for contributions as part of the Hacktoberfest celebration. If you're passionate about algorithms, data structures, and programming in C++ or Python, this is the right place for you.
+
+## Getting Started
+
+1. Fork this repository.
+2. Clone your forked repository to your local machine:
+   ```bash
+   git clone https://github.com/YourUsername/hacktoberfest-dsa.git
+
 <p style = "font-size = 15px;">In this repository as you can guess from the title itself it will contain all the Data structure Algorithms and their Design and Analysis. So if you can contribute❤ it would be great!🤩 </p>
 
 <h3>What is Time Complexity?</h3>
