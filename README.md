@@ -1,9 +1,6 @@
 # Data Structures and Algorithm with Design and Analysis
 
 ![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2023-brightgreen)
-![GitHub Issues](https://github.com/Einsteinia11/Data-Structures-and-Algorithm-with-Design-and-Analysis/issues)
-![GitHub Pull Requests](https://github.com/Einsteinia11/Data-Structures-and-Algorithm-with-Design-and-Analysis/pulls)
-![GitHub Stars](https://github.com/Einsteinia11/Data-Structures-and-Algorithm-with-Design-and-Analysis/stargazers)
 
 Welcome to the Hacktoberfest 2023 Data Structures and Algorithms project! This repository is open for contributions as part of the Hacktoberfest celebration. If you're passionate about algorithms, data structures, and programming in C++ or Python, this is the right place for you.
 
