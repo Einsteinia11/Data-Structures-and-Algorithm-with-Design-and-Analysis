@@ -1,43 +1,77 @@
 #include <gtest/gtest.h>
 #include "../Header/Graph/WeightedGraph.h"
 
-TEST(WeightedGraphTest, AddEdgesAndCheckAdjacency) {
-    WeightedGraph weightedGraph(5);
+TEST(WeightedGraphTest, AddEdge) {
+    WeightedGraph graph;
 
-    ASSERT_TRUE(weightedGraph.addUniDirectionalEdge(0, 1, 10));
-    ASSERT_TRUE(weightedGraph.addBiDirectionalEdge(0, 2, 20));
-    ASSERT_TRUE(weightedGraph.addUniDirectionalEdge(1, 3, 30));
+    // Add edges
+    ASSERT_TRUE(graph.addBiDirectionalEdge(0, 1, 5));
+    ASSERT_TRUE(graph.addUniDirectionalEdge(1, 2, 3));
+    ASSERT_TRUE(graph.addBiDirectionalEdge(2, 3, 7));
 
-    ASSERT_TRUE(weightedGraph.isEdge(0, 1));
-    ASSERT_FALSE(weightedGraph.isEdge(1, 0));
-    ASSERT_TRUE(weightedGraph.isEdge(0, 2));
-    ASSERT_TRUE(weightedGraph.isEdge(2, 0));
-    ASSERT_TRUE(weightedGraph.isEdge(1, 3));
-    ASSERT_FALSE(weightedGraph.isEdge(3, 1));
-
-    // Add more test cases for WeightedGraph as needed...
+    // Check if the edges were added successfully
+    ASSERT_TRUE(graph.isEdge(0, 1));
+    ASSERT_TRUE(graph.isEdge(1, 0)); // Should be bidirectional
+    ASSERT_TRUE(graph.isEdge(1, 2));
+    ASSERT_FALSE(graph.isEdge(0, 2)); // No direct edge between 0 and 2
 }
 
+TEST(WeightedGraphTest, RemoveEdge) {
+    WeightedGraph graph;
 
-// ALL test case will pass as it returns true if the edge
-// has been removed or there's no edge between the vertices
-// hence no false condition
-TEST(WeightedGraphTest, RemoveEdges) {
-    WeightedGraph weightedGraph(5);
+    // Add edges
+    graph.addBiDirectionalEdge(0, 1, 5);
+    graph.addUniDirectionalEdge(1, 2, 3);
 
-    // Add some weighted edges
-    weightedGraph.addBiDirectionalEdge(0, 1, 3);
-    weightedGraph.addBiDirectionalEdge(0, 2, 2);
-    weightedGraph.addBiDirectionalEdge(1, 3, 5);
+    // Remove edges
+    ASSERT_TRUE(graph.removeEdge(0, 1));
+    ASSERT_FALSE(graph.isEdge(0, 1)); // Edge should be removed
+    ASSERT_TRUE(graph.isEdge(1, 2));  // Other edges should still exist
 
-    // Remove an edge
-    ASSERT_TRUE(weightedGraph.removeEdge(0, 1));
-    ASSERT_FALSE(weightedGraph.isEdge(0, 1)); // Edge should be removed
+    // Remove a non-existent edge
+    ASSERT_FALSE(graph.removeEdge(0, 1));
+}
 
-    // Remove a bidirectional edge
-    ASSERT_TRUE(weightedGraph.removeBiDirectionalEdge(0, 2));
-    ASSERT_FALSE(weightedGraph.isEdge(0, 2)); // Edge should be removed
-    ASSERT_FALSE(weightedGraph.isEdge(2, 0)); // Bidirectional edge should be removed
+TEST(WeightedGraphTest, AddVertex) {
+    WeightedGraph graph;
+
+    // Add vertices
+    ASSERT_TRUE(graph.addVertex(0));
+    ASSERT_TRUE(graph.addVertex(1));
+
+    // Attempt to add a duplicate vertex
+    ASSERT_FALSE(graph.addVertex(0));
+}
+
+TEST(WeightedGraphTest, RemoveVertex) {
+    WeightedGraph graph;
+
+    // Add vertices and edges
+    graph.addBiDirectionalEdge(0, 1, 5);
+    graph.addUniDirectionalEdge(1, 2, 3);
+
+    // Remove a vertex
+    ASSERT_TRUE(graph.removeVertex(0));
+    ASSERT_FALSE(graph.hasVertex(0)); // Vertex should be removed
+    ASSERT_FALSE(graph.isEdge(0, 1));  // Edges connected to 0 should also be removed
+    ASSERT_TRUE(graph.isEdge(1, 2));   // Other edges should still exist
+
+    // Attempt to remove a non-existent vertex
+    ASSERT_FALSE(graph.removeVertex(3));
+}
+
+TEST(WeightedGraphTest, GetEdgeWeight) {
+    WeightedGraph graph;
+
+    // Add edges with weights
+    graph.addBiDirectionalEdge(0, 1, 5);
+    graph.addUniDirectionalEdge(1, 2, 3);
+
+    // Get edge weights
+    ASSERT_EQ(graph.getEdgeWeight(0, 1), 5);
+    ASSERT_EQ(graph.getEdgeWeight(1, 0), 5); // Bidirectional edge
+    ASSERT_EQ(graph.getEdgeWeight(1, 2), 3);
+    ASSERT_EQ(graph.getEdgeWeight(0, 2), -1); // Non-existent edge
 }
 
 int main(int argc, char** argv) {
