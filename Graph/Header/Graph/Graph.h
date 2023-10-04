@@ -2,16 +2,17 @@
 #define GRAPH_H
 
 #include <vector>
+#include <unordered_map>
+#include <unordered_set>
 
 class Graph {
 private:
-    int V; // Number of vertices
     const bool isWeighted = false; // Immutable flag to indicate if the graph is weighted
-    std::vector<std::vector<int>> adjList; // Adjacency list
+    std::unordered_map<int, std::vector<int>> adjList; // Adjacency list
 
 public:
-    // Constructor to create a graph with 'vertices' number of vertices
-    Graph(int vertices);
+    // Constructor to create an empty graph
+    Graph();
 
     // Function to add a unidirectional edge from 'src' to 'dest'
     bool addUniDirectionalEdge(int src, int dest);
@@ -33,7 +34,21 @@ public:
 
     // Remove a bidirectional edge between vertices u and v
     bool removeBiDirectionalEdge(int src, int dest);
-    // Other member functions...
+
+    // Function to add a vertex to the graph
+    bool addVertex(int vertex);
+
+    // Function to remove a vertex from the graph
+    bool removeVertex(int vertex);
+
+    // Function to get the number of vertices in the graph
+    int getVertexCount() const;
+
+    // Function to get a vector of all vertices in the graph
+    std::vector<int> getVertices() const;
+
+    // Function to check if a vertex exists in the graph
+    bool hasVertex(int vertex);
 };
 
 #endif
