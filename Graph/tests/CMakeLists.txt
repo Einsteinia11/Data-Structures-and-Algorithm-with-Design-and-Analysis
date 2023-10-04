@@ -1,13 +1,17 @@
 # tests/CMakeLists.txt
 
-# Include Google Test
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz
-)
-FetchContent_MakeAvailable(googletest)
+##
+      ## Remove comments from here if you don't have google test installed locally
 
+# Include Google Test
+#include(FetchContent)
+#FetchContent_Declare(
+#  googletest
+#  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz
+#)
+#FetchContent_MakeAvailable(googletest)
+
+##
 # Create test executables
 add_executable(graph_tests ../tests/graph_tests.cpp)
 add_executable(weighted_graph_tests ../tests/weighted_graph_tests.cpp)
