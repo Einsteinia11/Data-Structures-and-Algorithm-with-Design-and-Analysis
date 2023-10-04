@@ -3,15 +3,15 @@
 #include <stdexcept>
 #include <algorithm>
 
-// Constructor to initialize the graph with 'vertices' number of vertices
-Graph::Graph(int vertices) : V(vertices) {
-    adjList.resize(V);
+// Constructor to create an empty graph
+Graph::Graph() {
+    // No need to initialize anything here, the unordered_map grows dynamically
 }
 
 // Function to add a unidirectional edge from 'src' to 'dest'
 bool Graph::addUniDirectionalEdge(int src, int dest) {
     // Check if 'src' and 'dest' are valid vertex indices
-    if (src >= 0 && src < V && dest >= 0 && dest < V) {
+    if (adjList.find(src) != adjList.end() && adjList.find(dest) != adjList.end()) {
         adjList[src].push_back(dest);
         return true;
     } else {
@@ -40,7 +40,7 @@ bool Graph::addBiDirectionalEdge(int src, int dest) {
 // Function to check if an edge exists between 'src' and 'dest'
 bool Graph::isEdge(int src, int dest) {
     // Check if 'src' and 'dest' are valid vertex indices
-    if (src >= 0 && src < V && dest >= 0 && dest < V) {
+    if (adjList.find(src) != adjList.end() && adjList.find(dest) != adjList.end()) {
         // Iterate through the adjacency list of 'src' to find 'dest'
         for (int neighbor : adjList[src]) {
             if (neighbor == dest) {
@@ -58,10 +58,12 @@ bool Graph::getIsWeighted() const {
 
 // Function to print the adjacency list representation of the graph
 void Graph::printGraph() const {
-    for (int i = 0; i < V; ++i) {
-        std::cout << "Adjacency list for vertex " << i << ": ";
-        for (int j : adjList[i]) {
-            std::cout << j << " ";
+    for (const auto& entry : adjList) {
+        int vertex = entry.first;
+        const std::vector<int>& neighbors = entry.second;
+        std::cout << "Adjacency list for vertex " << vertex << ": ";
+        for (int neighbor : neighbors) {
+            std::cout << neighbor << " ";
         }
         std::cout << std::endl;
     }
@@ -72,14 +74,15 @@ bool Graph::removeEdge(int src, int dest) {
     try {
         // Check if an edge exists from u to v
         if (isEdge(src, dest)) {
-            // Edge exist, remove edge 
-             adjList[src].erase(std::remove(adjList[src].begin(), adjList[src].end(), dest), adjList[src].end());
+            // Edge exists, remove edge
+            auto& neighbors = adjList[src];
+            neighbors.erase(std::remove(neighbors.begin(), neighbors.end(), dest), neighbors.end());
         }
         // We can just return true if there's no edge between two vertexes as this
-        // function is to remove edge between two   
+        // function is to remove an edge between two
         return true; // Edge removed successfully
     } catch (const std::out_of_range& e) {
-        // Handle any out-of-range exception (e.g., u or v is not a valid vertex)
+        // Handle any out-of-range exception (e.g., src or dest is not a valid vertex)
         return false; // Return false indicating failure
     }
 }
@@ -92,4 +95,51 @@ bool Graph::removeBiDirectionalEdge(int src, int dest) {
 
     // Return true if both edges were successfully removed, false otherwise
     return success1 && success2;
+}
+
+// Function to add a vertex to the graph
+bool Graph::addVertex(int vertex) {
+    if (adjList.find(vertex) == adjList.end()) {
+        adjList[vertex] = {}; // Initialize an empty list of neighbors for the new vertex
+        return true;
+    } else {
+        return false; // Vertex already exists
+    }
+}
+
+// Function to remove a vertex from the graph
+bool Graph::removeVertex(int vertex) {
+    // Check if the vertex exists in the graph
+    if (adjList.find(vertex) != adjList.end()) {
+        // Remove all edges connected to the vertex
+        adjList.erase(vertex);
+
+        // Remove references to the vertex in other vertices' adjacency lists
+        for (auto& entry : adjList) {
+            entry.second.erase(std::remove(entry.second.begin(), entry.second.end(), vertex), entry.second.end());
+        }
+
+        return true; // Vertex removed successfully
+    } else {
+        return false; // Vertex not found in the graph
+    }
+}
+
+// Function to get the number of vertices in the graph
+int Graph::getVertexCount() const {
+    return adjList.size();
+}
+
+// Function to get a vector of all vertices in the graph
+std::vector<int> Graph::getVertices() const {
+    std::vector<int> vertices;
+    for (const auto& entry : adjList) {
+        vertices.push_back(entry.first);
+    }
+    return vertices;
+}
+
+// Function to check if a vertex exists in the graph
+bool Graph::hasVertex(int vertex) {
+    return adjList.find(vertex) != adjList.end();
 }
