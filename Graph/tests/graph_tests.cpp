@@ -1,42 +1,66 @@
 #include <gtest/gtest.h>
 #include "../Header/Graph/Graph.h"
 
-TEST(GraphTest, AddEdgesAndCheckAdjacency) {
-    Graph graph(5);
+TEST(GraphTest, AddVertexAndCheckVertices) {
+    Graph graph;
+
+    ASSERT_TRUE(graph.addVertex(0));
+    ASSERT_TRUE(graph.addVertex(1));
+    ASSERT_TRUE(graph.addVertex(2));
+
+    std::vector<int> vertices = graph.getVertices();
+    ASSERT_EQ(vertices.size(), 3);
+    ASSERT_TRUE(graph.hasVertex(0));
+    ASSERT_TRUE(graph.hasVertex(1));
+    ASSERT_TRUE(graph.hasVertex(2));
+}
+
+TEST(GraphTest, AddAndRemoveVertex) {
+    Graph graph;
+
+    ASSERT_TRUE(graph.addVertex(0));
+    ASSERT_TRUE(graph.addVertex(1));
+    ASSERT_TRUE(graph.addVertex(2));
 
     ASSERT_TRUE(graph.addBiDirectionalEdge(0, 1));
     ASSERT_TRUE(graph.addBiDirectionalEdge(0, 2));
-    ASSERT_TRUE(graph.addBiDirectionalEdge(1, 3));
+    ASSERT_TRUE(graph.addUniDirectionalEdge(1, 2));
 
-    ASSERT_TRUE(graph.isEdge(0, 1));
-    ASSERT_TRUE(graph.isEdge(1, 0));
-    ASSERT_TRUE(graph.isEdge(0, 2));
-    ASSERT_TRUE(graph.isEdge(2, 0));
-    ASSERT_TRUE(graph.isEdge(1, 3));
-    ASSERT_TRUE(graph.isEdge(3, 1));
+    ASSERT_TRUE(graph.removeVertex(0));
+    ASSERT_FALSE(graph.isEdge(0, 1));
+    ASSERT_FALSE(graph.isEdge(0, 2));
+    ASSERT_FALSE(graph.isEdge(1, 0));
+    ASSERT_FALSE(graph.isEdge(2, 0));
 
-    // Add more test cases for Graph as needed...
+    std::vector<int> vertices = graph.getVertices();
+    ASSERT_EQ(vertices.size(), 2);
+    ASSERT_FALSE(graph.hasVertex(0));
+    ASSERT_TRUE(graph.hasVertex(1));
+    ASSERT_TRUE(graph.hasVertex(2));
 }
 
-// ALL test case will pass as it returns true if the edge
-// has been removed or there's no edge between the vertices
-// hence no false condition
-TEST(GraphTest, RemoveEdges) {
-    Graph graph(5);
+TEST(GraphTest, AddEdgeAndCheckEdgeExistence) {
+    Graph graph;
 
-    // Add some edges
-    graph.addBiDirectionalEdge(0, 1);
-    graph.addBiDirectionalEdge(0, 2);
-    graph.addBiDirectionalEdge(1, 3);
+    ASSERT_TRUE(graph.addVertex(0));
+    ASSERT_TRUE(graph.addVertex(1));
 
-    // Remove an edge
-    ASSERT_TRUE(graph.removeEdge(0, 1));
-    ASSERT_FALSE(graph.isEdge(0, 1)); // Edge should be removed
+    ASSERT_TRUE(graph.addBiDirectionalEdge(0, 1));
+    ASSERT_TRUE(graph.isEdge(0, 1));
+    ASSERT_TRUE(graph.isEdge(1, 0));
+}
 
-    // Remove a bidirectional edge
-    ASSERT_TRUE(graph.removeBiDirectionalEdge(0, 2));
-    ASSERT_FALSE(graph.isEdge(0, 2)); // Edge should be removed
-    ASSERT_FALSE(graph.isEdge(2, 0)); // Bidirectional edge should be removed
+TEST(GraphTest, RemoveEdge) {
+    Graph graph;
+
+    ASSERT_TRUE(graph.addVertex(0));
+    ASSERT_TRUE(graph.addVertex(1));
+
+    ASSERT_TRUE(graph.addBiDirectionalEdge(0, 1));
+    ASSERT_TRUE(graph.removeBiDirectionalEdge(0, 1));
+
+    ASSERT_FALSE(graph.isEdge(0, 1));
+    ASSERT_FALSE(graph.isEdge(1, 0));
 }
 
 int main(int argc, char** argv) {
