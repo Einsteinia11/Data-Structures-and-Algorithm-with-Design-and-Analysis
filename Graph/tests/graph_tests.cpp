@@ -1,7 +1,7 @@
 /***************************************************
  *           Tests for UnWeighted Graph            *
  *                                                 *
- *         aurthor - Prabhat-Kumar-42              *
+ *         author - Prabhat-Kumar-42              *
  *  github - https://github.com/Prabhat-Kumar-42   *
  *                                                 *
  ***************************************************/

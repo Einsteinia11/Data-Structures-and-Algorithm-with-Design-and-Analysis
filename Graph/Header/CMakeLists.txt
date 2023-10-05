@@ -1,7 +1,7 @@
 ####################################################      
 #              Header/CMakeLists.txt               #
 #                                                  #
-#          aurthor - Prabhat-Kumar-42              #
+#          author - Prabhat-Kumar-42              #
 #   github - https://github.com/Prabhat-Kumar-42   #
 ####################################################
 

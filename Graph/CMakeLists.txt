@@ -1,7 +1,7 @@
 ####################################################      
 #    CMakeLists.txt for Project root directory     #
 #                                                  #
-#          aurthor - Prabhat-Kumar-42              #
+#          author - Prabhat-Kumar-42              #
 #   github - https://github.com/Prabhat-Kumar-42   #
 ####################################################
 
