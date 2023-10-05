@@ -15,7 +15,7 @@
 
 
 # How to use -
-#           1. Place the script at the root direcotry
+#           1. Place the script at the Project's root direcotry
 #           2. Make sure the script is executable
 #               - If not :
 #                         run 'chmod 554 build_test.sh'
