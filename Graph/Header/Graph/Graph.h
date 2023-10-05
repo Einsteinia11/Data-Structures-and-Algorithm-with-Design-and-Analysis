@@ -1,3 +1,11 @@
+/***************************************************
+ *      Header file for UnWeighted Graph           *
+ *                                                 *
+ *         aurthor - Prabhat-Kumar-42              *
+ *  github - https://github.com/Prabhat-Kumar-42   *
+ *                                                 *
+ ***************************************************/
+
 #ifndef GRAPH_H
 #define GRAPH_H
 

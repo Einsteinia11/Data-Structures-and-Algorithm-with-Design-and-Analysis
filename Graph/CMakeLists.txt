@@ -1,6 +1,19 @@
+####################################################      
+#    CMakeLists.txt for Project root directory     #
+#                                                  #
+#          aurthor - Prabhat-Kumar-42              #
+#   github - https://github.com/Prabhat-Kumar-42   #
+####################################################
+
+
+# minimum cmake veriosn required
 cmake_minimum_required(VERSION 3.22.1)
+
+# Project Name
 project(GraphAlgoritms)
-enable_testing()
+
+# testing
+enable_testing()  # remove this line to disable testing
 
 #Include the CMakeLists.txt files from subdirectories
 add_subdirectory(Header)

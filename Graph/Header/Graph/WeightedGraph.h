@@ -1,3 +1,11 @@
+/***************************************************
+ *      Header file for Weighted Graph             *
+ *                                                 *
+ *         aurthor - Prabhat-Kumar-42              *
+ *  github - https://github.com/Prabhat-Kumar-42   *
+ *                                                 *
+ ***************************************************/
+
 #ifndef WEIGHTEDGRAPH_H
 #define WEIGHTEDGRAPH_H
 
