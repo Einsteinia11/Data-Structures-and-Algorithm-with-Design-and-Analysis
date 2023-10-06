@@ -46,7 +46,7 @@ class SegmentTree {
     public void display() {
         display(this.root);
     }
-    //to display the nodes
+    // To display the nodes
     private void display(Node node) {
         String str = "";
         if (node.left != null) {
