@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "iostream": "cpp"
-    }
+    },
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
+    ]
 }
