@@ -9,6 +9,7 @@
 add_library(GraphImplementations
     Graph/Graph.cpp
     Graph/WeightedGraph.cpp
+    Algorithms/DFS.cpp
     #    Algorithms/...  # Add other source files as needed
 )
 
