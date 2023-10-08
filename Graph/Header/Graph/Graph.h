@@ -22,6 +22,9 @@ private:
 public:
   // Constructor to create an empty graph
   Graph();
+ 
+  // Get Adjacency List
+  std::unordered_map<int, std::vector<int>> getAdjList() const;
 
   // Function to add a unidirectional edge from 'src' to 'dest'
   bool addUniDirectionalEdge(int src, int dest);
