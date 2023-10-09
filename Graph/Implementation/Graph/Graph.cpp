@@ -16,6 +16,11 @@ Graph::Graph() {
   // No need to initialize anything here, the unordered_map grows dynamically
 }
 
+//Get Adjacency List
+std::unordered_map<int, std::vector<int>> Graph::getAdjList() const{
+  return adjList;
+}
+
 // Function to add a unidirectional edge from 'src' to 'dest'
 bool Graph::addUniDirectionalEdge(int src, int dest) {
   // Check if 'src' and 'dest' are valid vertex indices

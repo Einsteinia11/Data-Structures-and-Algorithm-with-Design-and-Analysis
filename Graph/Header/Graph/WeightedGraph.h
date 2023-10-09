@@ -10,6 +10,7 @@
 #define WEIGHTEDGRAPH_H
 
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
 class WeightedGraph {
@@ -22,6 +23,9 @@ private:
 public:
   // Constructor to create a weighted graph
   WeightedGraph();
+  
+  // Get Adjacency List 
+  std::unordered_map<int, std::vector<std::pair<int, int>>> getAdjList() const;
 
   // Function to add a unidirectional edge from 'src' to 'dest' with a given
   // 'weight'

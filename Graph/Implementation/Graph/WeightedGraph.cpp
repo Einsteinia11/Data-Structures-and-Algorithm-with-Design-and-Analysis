@@ -10,10 +10,18 @@
 #include <algorithm>
 #include <iostream>
 #include <stdexcept>
+#include <unordered_map>
+#include <utility>
+#include <vector>
 
 // Constructor to initialize the weighted graph
 WeightedGraph::WeightedGraph() {
   // No need to initialize anything here since it's an empty graph initially
+}
+
+// Get Adjacency List
+std::unordered_map<int, std::vector<std::pair<int, int>>> WeightedGraph:: getAdjList() const {
+  return adjList;
 }
 
 // Function to add a unidirectional edge from 'src' to 'dest' with a given
