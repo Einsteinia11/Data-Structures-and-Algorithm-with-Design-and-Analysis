@@ -10,8 +10,8 @@ Welcome to the Hacktoberfest 2023 Data Structures and Algorithms project! This r
 2. Clone your forked repository to your local machine:
    ```bash
    https://github.com/Einsteinia11/Data-Structures-and-Algorithm-with-Design-and-Analysis
-   <p style = "font-size = 15px;">In this repository as you can guess from the title itself it will contain all the Data structure Algorithms and their Design and Analysis. So if you can contribute❤ it would be great!🤩 </p>
    ```
+<p style = "font-size = 15px;">In this repository as you can guess from the title itself it will contain all the Data structure Algorithms and their Design and Analysis. So if you can contribute❤ it would be great!🤩 </p>
 
 <h3>What is Time Complexity?</h3>
 It is just a mathematical way of analysing how long an algorithm with a given number of inputs (n) will take to complete it's task. It's usually defined using Big-O-notation. Now Big-O-Notation is a way of converting the overall steps of an algorithm term, then excluding lower order constants and coefficients that don't have that big impact on the orverall complexity of the problem.Below are some common time complexities with simple definitions. Feel free to check out Wikipedia, though, for more in-depth definitions. <br><br>
